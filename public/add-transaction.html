@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/storage.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+    <a href="index.html">🏠Home</a>
+    <a href="dashboard.html">📊Dashboard</a>
+    <a href="add-transaction.html">➕Add Transaction</a>
+    <a href="history.html">📜History</a>
+    <a href="reports.html">🔮Reports</a>
+    <a href="assistant.html">🤖AI Assistant</a>
+    <a href="settings.html">⚙️Settings</a>
+    </nav>
+    <hr>
+    <div class="container">
+    <h1>Add Transaction</h1>
+    <form id="transForm">
+        <input type="text" id="desc" placeholder="Description" required>
+        <input type="number" id="amt" placeholder="Amount" required>
+        <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+        <input type="text" id="cat" placeholder="Category">
+        <input type="date" id="date">
+        <button type="submit">Save</button>
+    </form>
+    </div>
+    <script>
+        document.getElementById('transForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            addTransaction({
+                description: document.getElementById('desc').value,
+                amount: parseFloat(document.getElementById('amt').value),
+                type: document.getElementById('type').value,
+                category: document.getElementById('cat').value,
+                date: document.getElementById('date').value
+            });
+            alert('Saved!');
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
