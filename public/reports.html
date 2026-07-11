@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/storage.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+    <a href="index.html">🏠Home</a>
+    <a href="dashboard.html">📊Dashboard</a>
+    <a href="add-transaction.html">➕Add Transaction</a>
+    <a href="history.html">📜History</a>
+    <a href="reports.html">🔮Reports</a>
+    <a href="assistant.html">🤖AI Assistant</a>
+    <a href="settings.html">⚙️Settings</a>
+    </nav>
+    <hr>
+    <div class="container">
+    <h1>Spending Reports</h1>
+    <canvas id="myChart" width="200" height="200"></canvas>
+    </div>
+    <script>
+        // 1. Get your totals (as you already do)
+     // 1. Get your totals (as you already do)
+        const totals = getCategoryTotals();
+        const categories = Object.keys(totals);
+        const amounts = Object.values(totals);
+
+// 2. Define a list of different colors
+        const colorPalette = [
+            '#2a6e48', '#d9534f', '#f0ad4e', '#5bc0de', '#428bca', '#777777'
+        ];
+
+// 3. Create an array of colors that matches the number of categories
+        const backgroundColors = categories.map((_, index) => 
+            colorPalette[index % colorPalette.length]
+        );
+
+// 4. Update the chart initialization
+        new Chart(document.getElementById('myChart'), {
+            type: "pie",
+            data: {
+                labels: categories,
+                datasets: [{
+                    data: amounts,
+                    backgroundColor: backgroundColors // Use the dynamic array here
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
