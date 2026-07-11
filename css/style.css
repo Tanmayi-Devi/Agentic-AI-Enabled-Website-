@@ -1,0 +1,84 @@
+/* Color Variables */
+:root {
+    --bg-dark: #0f0c29;       /* Deep space blue */
+    --card-bg: #1c1a36;       /* Lighter purple-toned dark */
+    --text-primary: #e2e8f0;   /* Light gray */
+    --accent: #9d4edd;        /* Vibrant purple */
+    --accent-hover: #7b2cbf;
+    --nav-bg: #0b0919;        /* Darkest */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--bg-dark), #302b63, #24243e);
+    min-height: 100vh;
+    color: var(--text-primary);
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+}
+
+nav {
+    background: var(--nav-bg);
+    padding: 1.25rem 2rem;
+    display: flex;
+    gap: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+nav a {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover { color: #ffffff; }
+
+.container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    /* The third value here (24px) controls the space below the box */
+    margin: 8px 0 24px 0; 
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover { background: var(--accent-hover); }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; color: #cbd5e1; }
+th { color: var(--accent); padding: 16px; text-align: left; }
+td { padding: 16px; border-bottom: 1px solid #332d66; }
+a {
+    color: #38bdf8; /* A bright, visible light blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
