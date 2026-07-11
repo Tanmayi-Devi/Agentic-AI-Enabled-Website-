@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/storage.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+    <a href="index.html">🏠Home</a>
+    <a href="dashboard.html">📊Dashboard</a>
+    <a href="add-transaction.html">➕Add Transaction</a>
+    <a href="history.html">📜History</a>
+    <a href="reports.html">🔮Reports</a>
+    <a href="assistant.html">🤖AI Assistant</a>
+    <a href="settings.html">⚙️Settings</a>
+    </nav>
+    <hr>
+    <div class="container">
+     <h1>Dashboard</h1>   
+     <div>
+         <h3>💰 Balance:  <span id="balance">0</span></h3>
+         <p>📈 Total Income:  <span id="income">0</span></p>
+         <p>💸 Total Expenses:  <span id="expenses">0</span></p>
+         <p>Remaining Budget:  <span id="remaining">0</span></p>
+     </div>
+     <a href="add-transaction.html">Add New Transaction</a>
+    </div>
+    <script>
+    const totalExpenses = getTotalExpenses();
+    const budget = getBudget(); // Use our new helper
+    
+    // Math: Budget - Expenses
+    const remaining = budget - totalExpenses;
+
+    document.getElementById('balance').innerText = getBalance();
+    document.getElementById('income').innerText = getTotalIncome();
+    document.getElementById('expenses').innerText = totalExpenses;
+    document.getElementById('remaining').innerText = remaining;
+    </script>
+</body>
+</html>
