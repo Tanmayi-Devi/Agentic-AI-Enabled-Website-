@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/storage.js"></script>
+    <script src="js/ai.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+    <a href="index.html">🏠Home</a>
+    <a href="dashboard.html">📊Dashboard</a>
+    <a href="add-transaction.html">➕Add Transaction</a>
+    <a href="history.html">📜History</a>
+    <a href="reports.html">🔮Reports</a>
+    <a href="assistant.html">🤖AI Assistant</a>
+    <a href="settings.html">⚙️Settings</a>
+    </nav>
+    <hr>
+    <div class="container">
+    <h1>AI Financial Assistant</h1>
+    <input type="text" id="query" placeholder="Ask about your budget...">
+    <button onclick="getAdvice()">Ask AI</button>
+    <p id="response"></p>
+    </div>
+    <script>
+        async function getAdvice() {
+            const query = document.getElementById('query').value;
+            document.getElementById('response').innerText = "Analyzing...";
+            const reply = await askAI(query);
+            document.getElementById('response').innerText = reply;
+        }
+    </script>
+</body>
+</html>
